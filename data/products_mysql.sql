@@ -1,0 +1,25 @@
+DROP TABLE IF EXISTS 
+product_symbols,
+product_data;
+
+CREATE TABLE product_symbols (
+	ProductID VARCHAR(10) NOT NULL,
+	SymbolType NUMERIC(10 , 0),
+	SYMBOL VARCHAR(10) NOT NULL,
+	CUSIP VARCHAR(20)
+);
+
+CREATE TABLE product_data (
+	ProductID VARCHAR(10) NOT NULL,
+	ProductName VARCHAR(60),
+	ProductType VARCHAR(15),
+	ISSUER VARCHAR(10),
+	EXCHANGE VARCHAR(10),
+	DJIComponent NUMERIC(1 , 0) NOT NULL,
+	SP500Component NUMERIC(1 , 0) NOT NULL,
+	NAS100Component NUMERIC(1 , 0) NOT NULL,
+	AMEXINTComponent NUMERIC(1 , 0) NOT NULL,
+	PrimaryBusiness VARCHAR(30),
+	CONSTRAINT PK_ProductID PRIMARY KEY (ProductID)
+);
+
