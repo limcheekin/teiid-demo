@@ -5,11 +5,12 @@ The project created with [Teiid Designer](http://teiid.io/teiid_runtimes/teiid_w
 2. Create source model for `product_data` collection of Mongo DB
 3. Create view model for `product` which join `product_symbols` and `product_data` with the following SQL statement:
 ```sql
- SELECT
-	a.ProductID, a.SymbolType, a.SYMBOL, a.CUSIP, b.NAME, b.TYPE, b.ISSUER, b.EXCHANGE, b.ISDJI, b.ISSP500, b.ISNAS100, b.ISAMEXINT, b.PRIBUSINESS
- FROM
+SELECT
+    a.ProductID, a.SymbolType, a.SYMBOL, a.CUSIP, b.NAME, b.TYPE, b.ISSUER, 
+    b.EXCHANGE, b.ISDJI, b.ISSP500, b.ISNAS100, b.ISAMEXINT, b.PRIBUSINESS
+FROM
 	Teiid_Demo_MySQL.product_symbols AS a, Teiid_Demo_MongoDB.product_data AS b
- WHERE a.ProductID = b.INSTR_ID
+WHERE a.ProductID = b.INSTR_ID
 ```
 4. Create a Virtual DB(VDB) and add the created source models and view model to it
 5. Deploy the VDB to WildFly server
